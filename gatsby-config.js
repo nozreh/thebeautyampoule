@@ -1,0 +1,54 @@
+module.exports = {
+  siteMetadata: {
+    title: "The Beauty Ampoule",
+  },
+  plugins: [
+    'gatsby-plugin-top-layout',
+    {
+      resolve: 'gatsby-plugin-material-ui',
+      // If you want to use styled components you should change the injection order.
+      options: {
+        // stylesProvider: {
+        //   injectFirst: true,
+        // },
+      },
+    },
+    "gatsby-plugin-sass",
+    "gatsby-plugin-gatsby-cloud",
+    "gatsby-plugin-image",
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "XXX",
+      },
+    },
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/images/ampoule.svg",
+      },
+    },
+    "gatsby-transformer-remark",
+    "gatsby-plugin-mdx",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images/",
+      },
+      __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+      __key: "pages",
+    },
+  ],
+};
