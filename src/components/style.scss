@@ -1,0 +1,191 @@
+// Importing variables
+@import './variables.scss';
+
+// Helper classes
+@import './helper.scss';
+
+// Importing Bulma from node_modules
+@import '~bulma/bulma.sass';
+
+@mixin font-face($font-name, $path, $weight: normal, $style: normal) {
+	@font-face {
+	  font-family: quote($font-name);
+	  src: url($path+".ttf");
+	  src: url($path+".ttf") format("truetype");
+	  font-weight: $weight;
+	  font-style: $style;
+	}
+  }
+  
+  /* ===== Usage ===== */
+  @include font-face(Poppins, "/fonts/Poppins/Poppins-Medium", normal, normal);
+  @include font-face(RobotoSlabMedium, "/fonts/RobotoSlab/RobotoSlab-Medium", normal, normal);
+  
+
+.navbar {
+	background: $white;
+	padding: 6px 16px;
+	transition: background-color 350ms;
+	box-shadow: rgba(45, 45, 48, 0.06) 0px 2px 10px 0px;
+	display: flex;
+
+	.container {
+		justify-content: space-between;
+	}
+
+	.nav-center {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.navbar-item {
+		color: $primary-color;
+		text-transform: uppercase;
+		font-size: 0.8em;
+		font-family: 'Poppins', sans-serif;
+
+		img {
+			max-height: 2.50rem;
+		}
+
+		.button {
+			border: 1px solid $primary-color;
+			font-size: 1rem;
+			color: $primary-color;
+
+			&:hover {
+				color: $white;
+				background-color: $primary-color;
+			}
+		}
+	}
+
+	.nav-link {
+		&:after {    
+			background: none repeat scroll 0 0 transparent;
+			bottom: 0;
+			content: "";
+			display: block;
+			height: 1px;
+			left: 50%;
+			position: absolute;
+			background: $primary-color;
+			transition: width 0.3s ease 0s, left 0.3s ease 0s;
+			width: 0;
+		  }
+		&:hover {
+			background: none;
+			color: $primary-color;
+		}
+		&:hover:after { 
+			width: 100%; 
+			left: 0; 
+		}
+	}
+}
+
+.navbar-burger {
+	position: relative;
+	left: 1rem;
+	padding: 1rem;
+	&:hover {
+		background: none;
+		color: $secondary-color;
+	}
+}
+
+.gradientBg {
+	display: flex;
+	color: $primary-color;
+	.activeText {
+		font-family: 'RobotoSlabMedium', sans-serif;
+		min-width: 300px;
+	}
+}
+
+.hero.has-background {
+	position: relative;
+	overflow: hidden;
+	min-height: 80vh;
+}
+
+.hero-background {
+	position: absolute;
+	object-fit: cover;
+	object-position: center center;
+	width: 100%;
+	height: 100%;
+	&.top-background {
+		object-position: center;
+		opacity: 0.8;
+	}
+}
+
+.hero-body {
+	padding: 3.5rem 2.25rem;
+	position: relative;
+	max-width: 400px;
+	margin: 0.5rem auto 3.5rem;	
+	padding-top: 200px;
+
+	.button {
+
+		&:hover {
+			background-color: $white;
+			color: $primary-color;
+			border: 1px solid $primary;
+		}
+	}
+
+	.header-content {
+		padding-left: 0;
+	}
+}
+
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer {
+	display: flex;
+	padding: 1.5rem 1.5rem;
+	line-height: 1.5rem;
+	a {
+		border-bottom: 1px solid;
+		color: black;
+	}
+	a:hover {
+		color: $secondary-color;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.hero.is-large .hero-body {
+		padding: 16rem 1.5rem;
+	}
+	.hero-body {
+		flex: 1.5;
+		max-width: none;
+		margin: 0;
+
+		.header-content {
+			flex: 1.5;
+			max-width: none;
+			margin: 0;
+			padding-left: 220px;
+		}
+	}
+}
+
+@media screen and (min-width: 920px) {
+	.hero-body {
+
+		.header-content {
+			padding-left: 340px;
+		}
+	}
+	
+}
